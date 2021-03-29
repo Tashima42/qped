@@ -1,4 +1,4 @@
-# qped
+# qped: Questões para Estrutura de Dados 
 
 ## Project setup
 ```
