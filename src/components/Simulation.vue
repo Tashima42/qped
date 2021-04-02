@@ -36,6 +36,7 @@ export default {
         window.location.reload(true);
       } else {
         window.alert("Errado");
+
       }
     },
   },
