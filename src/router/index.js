@@ -1,11 +1,23 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Simulation from "../views/Simulation.vue"
+import Stack from "@/components/Stack.vue"
+import Queue from "@/components/Queue.vue"
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/simulation',
+    name: 'Simulation',
+    component: Simulation
+  },
+  {
+    path: '/stack',
+    name: 'Stack',
+    component: Stack
+  },
+  {
+    path: '/queue',
+    name: 'Queue',
+    component: Queue
   },
   {
     path: '/about',
