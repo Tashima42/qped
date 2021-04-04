@@ -4,6 +4,8 @@ import Stack from "@/components/Stack.vue"
 import Queue from "@/components/Queue.vue"
 import SourceCode from "../views/SourceCode.vue"
 import HelloWorld from "@/components/HelloWorld.vue"
+import Function from "../views/Function.vue"
+import LinearSearch from "@/components/LinearSearch.vue"
 
 const routes = [
   {
@@ -30,6 +32,16 @@ const routes = [
     path: '/source-code/hello-world',
     name: 'HelloWorld',
     component: HelloWorld
+  },
+  {
+    path: '/function',
+    name: 'Function',
+    component: Function
+  },
+  {
+    path: '/function/linear-search',
+    name: 'LinearSearch',
+    component: LinearSearch
   },
   {
     path: '/about',

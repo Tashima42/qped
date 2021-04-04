@@ -22,6 +22,6 @@ export default class Stack {
   }
 
   get() {
-    return this._itens.slice(0)
+    return this._itens
   }
 }

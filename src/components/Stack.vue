@@ -11,11 +11,9 @@
     <h3>Operations</h3>
     <div class="operations">
       <ol type="1">
-        <li
-          v-for="(operation, index) in operations"
-          :key="index"
-          v-html="operation"
-        ></li>
+        <li v-for="(operation, index) in operations" :key="index">
+          {{ operation }}
+        </li>
       </ol>
     </div>
     <h3>Options</h3>
@@ -61,11 +59,11 @@ export default {
       // generates a random number between 1 and 2, decreases by 1 and test if it's true or false
       if (random.bool()) {
         copy.pop();
-        operations.push("pop()<br />");
+        operations.push("pop()");
       } else {
         const randomInt = random.integer(1, 100);
         copy.push(randomInt);
-        operations.push(`push(${randomInt})<br />`);
+        operations.push(`push(${randomInt})`);
       }
     }
 
