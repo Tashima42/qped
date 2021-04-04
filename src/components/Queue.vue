@@ -2,7 +2,7 @@
   <div class="simulation">
     <p>
       <router-link to="/simulation">Simulacao</router-link> /
-      <router-link to="/queue">Queue</router-link>
+      <router-link to="/simulation/queue">Queue</router-link>
     </p>
     <h2>Utilizando um algoritimo de fila, qual sera o resultado final?</h2>
     <div class="stack">
@@ -51,7 +51,7 @@ export default {
   },
   data: function () {
     const operations = [],
-      queue = new Queue(...createRandomArray(10, 1, 100)),
+      queue = new Queue(...random.array(10, 1, 100)),
       copy = new Queue(...queue.get()),
       numberOfOperations = random.integer(3, 5);
     let options = [],

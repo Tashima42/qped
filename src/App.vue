@@ -1,6 +1,7 @@
 <template>
   <div id="router">
-    <router-link to="/simulation">simulation</router-link>
+    <router-link to="/simulation">Simulation</router-link>
+    <router-link to="/source-code">Source Code</router-link>
     <router-view />
   </div>
 </template>

@@ -21,4 +21,13 @@ export default class Random {
   bool() {
     return this.integer(1, 2) - 1 == true;
   }
+
+  array(numberOfElements, min, max) {
+    if (min <= 0) throw new Error("min can't be equal or less than 0");
+    const arr = [];
+    for (let i = 0; i < numberOfElements; i++) {
+      arr.push(this.integer(min, max));
+    }
+    return arr;
+  }
 }

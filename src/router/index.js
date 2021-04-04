@@ -2,6 +2,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Simulation from "../views/Simulation.vue"
 import Stack from "@/components/Stack.vue"
 import Queue from "@/components/Queue.vue"
+import SourceCode from "../views/SourceCode.vue"
+import HelloWorld from "@/components/HelloWorld.vue"
 
 const routes = [
   {
@@ -10,14 +12,24 @@ const routes = [
     component: Simulation
   },
   {
-    path: '/stack',
+    path: '/simulation/stack',
     name: 'Stack',
     component: Stack
   },
   {
-    path: '/queue',
+    path: '/simulation/queue',
     name: 'Queue',
     component: Queue
+  },
+  {
+    path: '/source-code',
+    name: 'SourceCode',
+    component: SourceCode,
+  },
+  {
+    path: '/source-code/hello-world',
+    name: 'HelloWorld',
+    component: HelloWorld
   },
   {
     path: '/about',

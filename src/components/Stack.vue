@@ -2,7 +2,7 @@
   <div class="simulation">
     <p>
       <router-link to="/simulation">Simulacao</router-link> /
-      <router-link to="/stack">Stack</router-link>
+      <router-link to="/simulation/stack">Stack</router-link>
     </p>
     <h2>Utilizando um algoritimo de pilha, qual sera o resultado final?</h2>
     <div class="stack">
@@ -51,7 +51,7 @@ export default {
   },
   data: function () {
     const operations = [],
-      stack = new Stack(...createRandomArray(10, 1, 100)),
+      stack = new Stack(...random.array(10, 1, 100)),
       copy = new Stack(...stack.get()),
       numberOfOperations = random.integer(3, 5);
     let options = [],
@@ -86,15 +86,6 @@ export default {
     }
     options.push(copy);
     options = random.shuffleArray(options);
-
-    function createRandomArray(elements, min, max) {
-      if (min <= 0) throw new Error("min can't be equal or less than 0");
-      const stack = [];
-      for (let i = 0; i < elements; i++) {
-        stack.push(random.integer(min, max));
-      }
-      return stack;
-    }
 
     return {
       operations,
