@@ -27,14 +27,14 @@ export default {
   name: "HelloWorld",
   methods: {
     verify(replaceLines, answer, base) {
-      const correct = [];
-      replaceLines.forEach((i) => {
-        if (answer[i] == base[i]) correct.push({ i, correct: true });
-        else correct.push({ i, correct: false });
-      });
-      correct.forEach((line) => {
-        if (line.correct === false) alert(`Line ${line.i} is incorrect`);
-      });
+      for (let i = 0; i < replaceLines.length; i++) {
+        const index = replaceLines[i];
+        if (answer[index] != base[index]) {
+          alert(`Line ${index} is incorrect`);
+          return;
+        }
+      }
+      alert("Correct!");
     },
   },
   data: function () {
