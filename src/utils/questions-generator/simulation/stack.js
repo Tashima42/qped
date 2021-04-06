@@ -1,48 +1,48 @@
-import Random from "../random.js"
+import Random from "../../random.js"
 const random = new Random()
-import Queue from "../algorithms/Queue"
+import Stack from "../../algorithms/Stack.js"
 
 const operations = [],
-  queue = new Queue(...random.array(10, 1, 100)),
-  copy = new Queue(...queue.get()),
+  stack = new Stack(...random.array(10, 1, 100)),
+  copy = new Stack(...stack.get()),
   numberOfOperations = random.integer(3, 5);
 let options = []
 
 for (let i = 0; i < numberOfOperations; i++) {
   // generates a random number between 1 and 2, decreases by 1 and test if it's true or false
   if (random.bool()) {
-    copy.dequeue();
-    operations.push("dequeue()");
+    copy.pop();
+    operations.push("pop()");
   } else {
     const randomInt = random.integer(1, 100);
-    copy.enqueue(randomInt);
-    operations.push(`enqueue(${randomInt})`);
+    copy.push(randomInt);
+    operations.push(`push(${randomInt})`);
   }
 }
-
 function createOptions(base, numberOfOperations) {
-  const copy = new Queue(...[...base.get()].slice(0));
+  const copy = new Stack(...[...base.get()].slice(0));
   for (let i = 0; i < numberOfOperations; i++) {
     if (random.bool()) {
-      copy.dequeue();
+      copy.pop();
     } else {
-      copy.enqueue(random.integer(1, 100));
+      copy.push(random.integer(1, 100));
     }
   }
   return copy;
 }
 
 for (let i = 0; i < 4; i++) {
-  options.push(createOptions(queue, numberOfOperations).get());
+  options.push(createOptions(stack, numberOfOperations).get());
 }
-options.push(copy);
+options.push(copy.get());
 options = random.shuffleArray(options);
 
-const base = queue.get()
+const base = stack.get()
 const answer = copy.get()
+
 export default {
-  answer,
-  base,
   operations,
-  options
+  base,
+  answer,
+  options,
 }

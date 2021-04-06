@@ -1,10 +1,6 @@
 <template>
   <div class="hello-world">
-    <p>
-      <router-link to="/source-code">Source Code</router-link> /
-      <router-link to="/source-code/hello-world">Hello World</router-link>
-    </p>
-    <h2>Complete as linhas que estao faltando</h2>
+    <h2>{{ header }}</h2>
     <div class="lines" v-for="(line, index) in copy" :key="index">
       <p v-if="line.length != 0">{{ line }}</p>
       <input type="text" v-if="line.length === 0" v-model="answer[index]" />
@@ -24,7 +20,12 @@ import Random from "../utils/random.js";
 const random = new Random();
 
 export default {
-  name: "HelloWorld",
+  name: "Code",
+  props: {
+    header: String,
+    sourceCode: Array,
+    output: Array,
+  },
   methods: {
     verify(replaceLines, answer, base) {
       for (let i = 0; i < replaceLines.length; i++) {
@@ -38,21 +39,12 @@ export default {
     },
   },
   data: function () {
-    const source = [
-        "#include <stdio.h>",
-        "int main()",
-        "{",
-        'printf("Hello World");',
-        "return 0;",
-        "}",
-      ],
-      output = ["Hello World"],
-      copy = source.slice(0),
+    const copy = this.sourceCode.slice(0),
       replaceLines = random
         .array(
-          random.integer(1, Math.floor(source.length / 3)),
+          random.integer(1, Math.floor(this.sourceCode.length / 3)),
           1,
-          source.length
+          this.sourceCode.length
         )
         .map((value) => value - 1);
 
@@ -65,9 +57,7 @@ export default {
     });
     return {
       copy,
-      output,
       replaceLines,
-      source,
       answer: copy.slice(0),
     };
   },

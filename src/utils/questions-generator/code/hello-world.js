@@ -1,0 +1,13 @@
+const source = [
+  "#include <stdio.h>",
+  "int main()",
+  "{",
+  'printf("Hello World");',
+  "return 0;",
+  "}",
+],
+  output = ["Hello World"]
+
+export default {
+  source, output
+}

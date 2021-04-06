@@ -21,8 +21,8 @@
 
 <script>
 import MultipleChoice from "../components/MultipleChoice.vue";
-import stack from "../utils/questions-generator/stack.js";
-import queue from "../utils/questions-generator/queue.js";
+import stack from "../utils/questions-generator/simulation/stack.js";
+import queue from "../utils/questions-generator/simulation/queue.js";
 
 export default {
   name: "Simulation",

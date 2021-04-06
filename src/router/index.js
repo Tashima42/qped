@@ -1,35 +1,20 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Simulation from "../views/Simulation.vue"
-import SourceCode from "../views/SourceCode.vue"
-import HelloWorld from "@/components/HelloWorld.vue"
-import Function from "../views/Function.vue"
-import LinearSearch from "@/components/LinearSearch.vue"
 
 const routes = [
   {
     path: '/simulation',
     name: 'Simulation',
-    component: Simulation
+    component: () => import("../views/Simulation.vue")
   },
   {
     path: '/source-code',
     name: 'SourceCode',
-    component: SourceCode,
-  },
-  {
-    path: '/source-code/hello-world',
-    name: 'HelloWorld',
-    component: HelloWorld
+    component: () => import("../views/SourceCode.vue"),
   },
   {
     path: '/function',
     name: 'Function',
-    component: Function
-  },
-  {
-    path: '/function/linear-search',
-    name: 'LinearSearch',
-    component: LinearSearch
+    component: () => import("../views/Function.vue")
   },
   {
     path: '/about',
