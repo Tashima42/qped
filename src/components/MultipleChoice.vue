@@ -15,14 +15,13 @@
     <h3>Options</h3>
     <div class="options">
       <div v-for="(option, index) in options" :key="index">
-        <input type="radio" :id="index" :value="index" v-model="selected" />
+        <input type="radio" :id="index" :value="index" v-model="REPLACE" />
         <label>{{ option }}</label>
       </div>
     </div>
   </div>
   <div class="buttons">
-    <button v-on:click="selected = null">RESET</button>
-    <button v-on:click="verifyResult(options[selected], answer)">VERIFY</button>
+    <button v-on:click="verifyResult(options[REPLACE], answer)">VERIFY</button>
   </div>
 </template>
 
@@ -44,6 +43,12 @@ export default {
         window.alert("Errado");
       }
     },
+  },
+  data: function () {
+    let REPLACE;
+    return {
+      REPLACE,
+    };
   },
 };
 </script>

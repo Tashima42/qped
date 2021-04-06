@@ -2,19 +2,19 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/simulation',
-    name: 'Simulation',
-    component: () => import("../views/Simulation.vue")
+    path: '/stack',
+    name: 'Stack',
+    component: () => import("../views/Stack.vue")
   },
   {
-    path: '/source-code',
-    name: 'SourceCode',
-    component: () => import("../views/SourceCode.vue"),
+    path: '/queue',
+    name: 'Queue',
+    component: () => import("../views/Queue.vue")
   },
   {
-    path: '/function',
-    name: 'Function',
-    component: () => import("../views/Function.vue")
+    path: '/linear-search',
+    name: 'LinearSearch',
+    component: () => import("../views/LinearSearch.vue")
   },
   {
     path: '/about',

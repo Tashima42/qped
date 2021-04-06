@@ -37,8 +37,8 @@ for (let i = 0; i < 4; i++) {
 options.push(copy.get());
 options = random.shuffleArray(options);
 
-const base = stack.get()
-const answer = copy.get()
+const base = `[ ${stack.get().toString()} ]`
+const answer = `[ ${copy.get().toString()} ]`
 
 export default {
   operations,

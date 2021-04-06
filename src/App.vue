@@ -1,8 +1,8 @@
 <template>
   <div id="router">
-    <router-link to="/simulation">Simulation</router-link>
-    <router-link to="/source-code">Source Code</router-link>
-    <router-link to="/function">Function</router-link>
+    <router-link to="/stack">Stack</router-link>
+    <router-link to="/queue">Queue</router-link>
+    <router-link to="/linear-search">Linear Search</router-link>
     <hr class="line" />
     <router-view />
   </div>
