@@ -1,6 +1,6 @@
 <template>
   <div class="simulation">
-    <h2>{{ header }}</h2>
+    <h2>{{ title }}</h2>
     <div class="stack">
       <p>{{ base }}</p>
     </div>
@@ -15,13 +15,15 @@
     <h3>Options</h3>
     <div class="options">
       <div v-for="(option, index) in options" :key="index">
-        <input type="radio" :id="index" :value="index" v-model="REPLACE" />
+        <input type="radio" :id="index" :value="index" v-model="selected" />
         <label>{{ option }}</label>
       </div>
     </div>
   </div>
   <div class="buttons">
-    <button v-on:click="verifyResult(options[REPLACE], answer)">VERIFY</button>
+    <button v-on:click="alert(verify(options[selected], answer))">
+      VERIFY
+    </button>
   </div>
 </template>
 
@@ -29,25 +31,16 @@
 export default {
   name: "MultipleChoice",
   props: {
-    header: String,
+    title: String,
     base: String,
     answer: String,
     operations: Array,
     options: Array,
   },
-  methods: {
-    verifyResult: function (base, compare) {
-      if (base.get() == compare.get()) {
-        window.alert("Correto");
-      } else {
-        window.alert("Errado");
-      }
-    },
-  },
   data: function () {
-    let REPLACE;
+    let selected;
     return {
-      REPLACE,
+      selected,
     };
   },
 };

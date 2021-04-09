@@ -1,18 +1,13 @@
 <template>
-  <button v-on:click="selected = 1">Multiple Choice</button>
-  <multiple-choice
-    v-if="selected == 1"
-    :answer="queue.answer"
-    :base="queue.base"
-    header="Utilizando um algoritimo de fila, qual sera o resultado final?"
-    :operations="queue.operations"
-    :options="queue.options"
-  />
+  <div v-for="(question, i) in queue" :key="i">
+    <button v-on:click="selected = i">{{ question.type }}</button>
+    <component :is="question.type" v-if="selected == i" v-bind="question" />
+  </div>
 </template>
 
 <script>
 import MultipleChoice from "../components/MultipleChoice.vue";
-import queue from "../utils/questions-generator/simulation/queue.js";
+import queue from "../questions/queue/index.js";
 
 export default {
   name: "Simulation",

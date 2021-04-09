@@ -24,6 +24,6 @@ export default class Queue {
   }
 
   get() {
-    return this._itens
+    return this._itens.slice(0)
   }
 }

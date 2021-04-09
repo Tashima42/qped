@@ -1,12 +1,12 @@
 <template>
   <div class="hello-world">
-    <h2>{{ header }}</h2>
-    <div class="lines" v-for="(line, index) in sourceCode" :key="index">
+    <h2>{{ title }}</h2>
+    <div class="lines" v-for="(line, index) in source" :key="index">
       <p>{{ line }}</p>
     </div>
     <div class="output">
       <h3>Output</h3>
-      <input type="number" v-model="output" />
+      <input type="number" v-model="answer" />
     </div>
     <button v-on:click="verify()">VERIFY</button>
   </div>
@@ -16,17 +16,20 @@
 export default {
   name: "Function",
   props: {
-    sourceCode: Array,
-    header: String,
-    //findIndex: Number,
+    title: String,
+    source: Array,
+    answer: String,
   },
   methods: {
-    verify() {},
+    verify() {
+      // TODO: implement ferify
+      console.warn("IMPLEMENT VERIFY");
+    },
   },
   data: function () {
-    let output;
+    let answer;
     return {
-      output,
+      answer,
     };
   },
 };
